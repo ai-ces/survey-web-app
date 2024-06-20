@@ -22,5 +22,13 @@ form.addEventListener("submit", (e) => {
   //console.log(score);
 
   result.classList.remove("d-none");
-  result.querySelector("span").textContent = `${score}%`;
+  let puan = 0;
+  const test = setInterval(() => {
+    result.querySelector("span").textContent = `${puan}%`;
+    if (puan == score) {
+      clearInterval(test);
+    } else {
+      puan++;
+    }
+  }, 20);
 });
